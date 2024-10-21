@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Interactive Website</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #E7FBE6;
+            color: black;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Vertical Menu */
+        .menu {
+            width: 200px;
+            height: 100vh;
+            position: fixed;
+            background-color: #86AB89;
+        }
+
+        .menu ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .menu ul li {
+            margin: 0;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .menu ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            display: block;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .menu ul li a:hover {
+            background-color: #5F8A6B;
+        }
+
+        .menu ul li a.active {
+            background-color: #4E7353;
+            font-weight: bold;
+        }
+
+        /* Content Section */
+        .content {
+            margin-left: 220px;
+            padding: 20px;
+        }
+
+        .page {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .page[style="display: block;"] {
+            opacity: 1;
+        }
+
+        /* Back to Top Button */
+        #backToTop {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px;
+            background-color: #86AB89;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #backToTop:hover {
+            background-color: #5F8A6B;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .menu {
+                width: 100%;
+                height: auto;
+            }
+            .content {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="menu">
+        <ul>
+            <li><a href="#" onclick="showPage('home')" class="active">Home</a></li>
+            <li><a href="#" onclick="showPage('about')">About</a></li>
+            <li><a href="#" onclick="showPage('journey')">My DH Journey</a></li>
+            <li><a href="#" onclick="showPage('readings')">My Readings</a></li>
+            <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <button id="themeToggle">Toggle Dark Mode</button>
+
+        <div id="home" class="page" style="display: block;">
+            <h1>Welcome to My Website</h1>
+            <p>The HASTAC Scholars Program is an innovative, student-driven community of graduate and undergraduate students. Each year, around 100 new Scholars are accepted into a 2-year cohort. Scholars come from dozens of disciplines and have been sponsored by over 200 colleges and universities.</p>
+        </div>
+
+        <div id="about" class="page">
+            <h1>About Me</h1>
+            <p>This section will contain information about me.</p>
+        </div>
+
+        <div id="journey" class="page">
+            <h1>My DH Journey</h1>
+            <p>This section will describe my journey into Digital Humanities.</p>
+        </div>
+
+        <div id="readings" class="page">
+            <h1>My Readings</h1>
+            <p>This section will showcase my readings and interests.</p>
+        </div>
+
+        <div id="contact" class="page">
+            <h1>Contact Me</h1>
+            <p>Feel free to reach out to me at myemail@example.com.</p>
+        </div>
+    </div>
+
+    <button id="backToTop">↑ Top</button>
+
+    <script>
+        // Function to handle page display
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            const menuLinks = document.querySelectorAll('.menu ul li a');
+
+            // Hide all pages and remove 'active' class from menu links
+            pages.forEach(page => page.style.display = 'none');
+            menuLinks.forEach(link => link.classList.remove('active'));
+
+            // Show the selected page and highlight the corresponding menu link
+            document.getElementById(pageId).style.display = 'block';
+            document.querySelector(`a[onclick="showPage('${pageId}')"]`).classList.add('active');
+        }
+
+        // Toggle Dark Mode
+        const toggleButton = document.getElementById('themeToggle');
+        let darkMode = false;
+
+        toggleButton.addEventListener('click', () => {
+            darkMode = !darkMode;
+            document.body.style.backgroundColor = darkMode ? '#333' : '#E7FBE6';
+            document.body.style.color = darkMode ? '#fff' : '#000';
+        });
+
+        // Back to Top Button Functionality
+        const backToTop = document.getElementById('backToTop');
+
+        window.onscroll = function () {
+            if (document.documentElement.scrollTop > 300) {
+                backToTop.style.display = 'block';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        };
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
