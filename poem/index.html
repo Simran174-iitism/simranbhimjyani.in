@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blue is my favourite colour</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+   
+</head>
+
+<body class="house-wall" id="audioButton">
+
+    <div class='loader'>
+                 
+        <!-- <div class='loader_line'></div> -->
+        <!-- <div class='loader_icon'> -->
+          <img src='assets/images/Blue.gif'>
+        <!-- </div> -->
+      </div>
+      <div class='main'>
+        <section class='main_left content-display'>
+          <div class='main_left__logo'>
+            <a>
+              
+               <h1>Blue is my favourite colour</h1>
+            </a>
+          </div>
+          <div class='main_left__poem '>
+            
+            <p></p>
+            <i></i>
+
+          </div>
+             <div class='buttons'>
+      
+              <!-- <a href='http://www.google.com' target='_blank'> -->
+                <div class='buttons_poet'>
+                  <img src='assets/images/poem_about.png'>
+                  <img class='alt' src='assets/images/poem_about_white.png'>
+                  <span>About Us</span>
+                </div>
+              <!-- </a> -->
+            </div>
+        </section>
+        <section class='main_center'>
+          <div class='main_center__button reset'>
+            <img src='assets/images/replay.png'>
+            <div class='tooltip'>
+              Replay
+            </div>
+          </div>
+          <div class='main_center__pips'></div>
+          <div class='main_center__stage lighthouse'>
+            <div class='lighthouse'>
+              <!-- <div class='stars'> -->
+                <img src='assets/images/one_bird.png'>
+              <!-- </div> -->
+              
+            </div>
+            <div class='fall'>
+                <img src='assets/images/two_birds.png'>
+            </div>
+            <div class='sing'>
+                <img src='assets/images/bluesky.png'>
+            </div>
+            <div class='hope'>
+                <img src='assets/images/plain_feild.png'>
+            </div>
+            <div class='moon'>
+                <img src='assets/images/building.png'>
+            </div>
+          </div>
+          <div class='overlay'></div>
+        </section>
+        <section class='main_right'>
+          <div class='main_right__audio'>
+            <img class='on' src='assets/images/speaker.png'>
+            <img class='off' src='assets/images/speakerout.png'>
+          </div>
+         
+          <div class='main_right__controls'>
+            <!-- <div class="info-icon button">
+                <div class='tooltip' style="width:250px;">
+                    Click the blue icons to move back next to see poems
+                  </div>
+                <i>ℹ️</i>
+              </div> -->
+            <div class='back button'>
+              <div class='tooltip'>
+                Previous
+              </div>
+              <img src='assets/images/uparrow.png'>
+            </div>
+         
+            <div class='next button'>
+              <div class='tooltip'>
+                Next
+              </div>
+              <img src='assets/images/uparrow.png'>
+            </div>
+          </div>
+        </section>
+      </div>
+      <canvas class='grain'></canvas>  
+      <!-- Popup Structure -->
+<div id="popup" class="popup hidden">
+    <div class="popup-content">
+      <span class="close-btn">&times;</span>
+      <h2 id="popup-heading"></h2>
+      <div id="popup-body"></div>
+    </div>
+  </div>
+  
+      <script src="script.js"></script>
+</body>
+
+</html>
