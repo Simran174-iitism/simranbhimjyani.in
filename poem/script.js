@@ -177,23 +177,55 @@ function updateStage(index) {
     }, 1200);
 }
 
+let isRunning = false; // Flag to prevent multiple executions
+
 function resetStage(index) {
-    $(".main_center__stage").addClass("reverse");
+    if (isRunning) {
+        console.warn("Function is already running, ignoring further clicks.");
+        return; // Prevent further execution
+    }
 
-    setTimeout(function () {
-        $(".main_center__stage").removeClass(
-            $(".main_center__stage").attr("class").split(" ").pop()
-        );
-        $(".main_center__stage").removeClass(
-            $(".main_center__stage").attr("class").split(" ").pop()
-        );
-        $(".main_center__stage").css("background", poems[index].color);
-    }, 800);
+    isRunning = true; // Set flag to true
 
-    setTimeout(function () {
-        $(".main_center__stage").addClass(poems[index].animation);
-    }, 850);
+    try {
+        $(".main_center__stage").addClass("reverse");
+
+        setTimeout(function () {
+            try {
+                $(".main_center__stage").removeClass(
+                    $(".main_center__stage").attr("class").split(" ").pop()
+                );
+                $(".main_center__stage").removeClass(
+                    $(".main_center__stage").attr("class").split(" ").pop()
+                );
+                $(".main_center__stage").css("background", poems[index].color);
+            } catch (innerError) {
+                console.error("Error during stage reset:", innerError);
+                window.location.reload(); // Reload if an error occurs
+            }
+        }, 800);
+
+        setTimeout(function () {
+            try {
+                $(".main_center__stage").addClass(poems[index].animation);
+            } catch (innerError) {
+                console.error("Error adding animation:", innerError);
+                window.location.reload(); // Reload if an error occurs
+            }
+        }, 850);
+    } catch (error) {
+        console.error("General error in resetStage:", error);
+        window.location.reload();
+    } finally {
+        // Reset the flag after a delay to allow function execution again
+        setTimeout(function () {
+            isRunning = false; // Allow the function to be called again
+        }, 1000); // Delay slightly longer than your longest timeout
+    }
+
+    console.log("reset called with index:", index);
 }
+
 $(".next").click(function () {
     if ($(window).width() < 620) {
         soundscape.play();
@@ -237,10 +269,34 @@ $(".back").click(function () {
     }
 });
 
+// $("body").on("click", ".pip", function () {
+//     updatePoem(parseInt(poems.length - $(this).index() - 1));
+//     index = parseInt(poems.length - $(this).index() - 1);
+// });
+let isPipClickRunning = false; // Flag to prevent multiple clicks
+
 $("body").on("click", ".pip", function () {
-    updatePoem(parseInt(poems.length - $(this).index() - 1));
-    index = parseInt(poems.length - $(this).index() - 1);
+    if (isPipClickRunning) {
+        console.warn("Pip click is already running, ignoring further clicks.");
+        return; // Prevent further execution
+    }
+
+    isPipClickRunning = true; // Set flag to prevent multiple clicks
+
+    try {
+        let poemIndex = parseInt(poems.length - $(this).index() - 1);
+        updatePoem(poemIndex);
+        index = poemIndex;
+    } catch (error) {
+        console.error("Error in pip click handler:", error);
+    } finally {
+        // Reset the flag after a short delay to allow another click
+        setTimeout(function () {
+            isPipClickRunning = false; // Allow clicks again
+        }, 500); // Adjust the delay as needed
+    }
 });
+
 
 /* ====================================================================
 
