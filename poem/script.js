@@ -41,7 +41,7 @@ const poems = [
     {
 
         poem:
-            "An empty space,<br />With a window offering a view<br />A bird, sitting outside on a plain wall<br />A patch of green grass <br />Some unrecognized sounds and voices<br />A little breeze<br />Somebody laughing,<br />Somebody singing inside their homes<br />The Bird flies away <br />",
+            "An empty space,<br />With a window offering a view<br />A bird,sitting outside on a plain wall<br />A patch of green grass <br />Some unrecognized sounds and voices<br />A little breeze<br />Somebody laughing,<br />Somebody singing inside their homes<br />The Bird flies away <br />",
         animation: "lighthouse",
         color: "lightblue",
         audio: lighthouse
@@ -59,7 +59,7 @@ const poems = [
     {
         
         poem:
-            "On your chair <br />gazing ,staring ,listening ,thinking <br />Breathing deeply <br />Closing your eyes,when the gush of breeze meets your face <br />Looking for the bird now <br />How it passes its day <br />Simply flying to and fro <br />There are more ,you gaze upwards at the - <br />'Bluest sky' you thought was seen only when you were a child ! <br />",
+            "On your chair <br />gazing, staring, listening, thinking <br />Breathing deeply <br />Closing your eyes, when the gush of breeze meets your face <br />Looking for the bird now <br />How it passes its day <br />Simply flying to and fro <br />There are more, you gaze upwards at the - <br />'Bluest sky' you thought was seen only when you were a child ! <br />",
         animation: "sing",
         color: "lightblue",
         audio: sing
@@ -74,7 +74,7 @@ const poems = [
     },
     {
 
-        poem:"This picture has been taken after 4 years of composing the poem(2024) and now, the green field is no more visible, as buildings have been constructed. The  sparrow is also not seen any more. Only the blue sky remains!<br />",
+        poem:"This picture has been taken after 4 years of composing the poem(2024) and now, the green field is no more visible, as buildings have been constructed. The sparrow is also not seen any more. Only the blue sky remains!<br />",
 
         animation: "moon",
         color: "lightblue",
@@ -462,8 +462,8 @@ const grain = new Grain(el);
 $('.buttons_poet').click(function (e) {
     e.preventDefault(); // Prevent default link behavior
     const poetContent = `
-        <h1 style="margin-bottom:0">Simran</h1><br/><p style="margin-top:0">Learn more about the poet <strong></strong></p>
-        <h1 style="margin-bottom:0">Mohana</h1><br/><p style="margin-top:0">Learn more about the poet <strong></strong></p>
+        <h1 style="margin-bottom:0">Simran</h1><br/><p style="margin-top:0">Simran Bhimjyani is a first year Research Scholar at Indian Institute of Technology Dhanbad, working in the area of Digital Environmental Humanities. She holds an MA in English from Banaras Hindu University poet.When she's not busy with academics, Simran can be found nurturing her leafy mates or scribbling verse. <strong></strong></p>
+        <h1 style="margin-bottom:0">Mohana</h1><br/><p style="margin-top:0">Mohanapriya is a senior web developer, software developer, and trainer extraordinaire. With a BSc in Physics and Masters and MPhil in Computer Applications from Bharathiar University, Mohanapriya aces at  fundamental programming languages like C, C++, Python, R, JavaScript, PHP, Ruby, Dart, and Data Science. When she's not coding, she loves spending time with her adorable pets!<strong></strong></p>
         
     `;
     openPopup('About Us', poetContent);
