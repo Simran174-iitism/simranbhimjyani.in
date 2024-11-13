@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Interactive Website</title>
+    <title>Simran Bhimjyami's Website</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
     <style>
         /* General Styles */
@@ -18,23 +22,27 @@
             transition: background-color 0.3s, color 0.3s;
         }
 
-        /* Vertical Menu */
+        /* Menu Bar */
         .menu {
-            width: 200px;
+            width: 250px;
             height: 100vh;
             position: fixed;
             background-color: #86AB89;
+            transition: width 0.3s;
+            left: 0;
         }
 
         .menu ul {
             list-style-type: none;
             padding: 0;
+            margin-top: 0;
         }
 
         .menu ul li {
             margin: 0;
             padding: 15px;
             text-align: center;
+            position: relative;
         }
 
         .menu ul li a {
@@ -43,6 +51,8 @@
             font-size: 18px;
             display: block;
             transition: background-color 0.3s, color 0.3s;
+            padding: 10px;
+            border-radius: 5px;
         }
 
         .menu ul li a:hover {
@@ -56,8 +66,9 @@
 
         /* Content Section */
         .content {
-            margin-left: 220px;
+            margin-left: 250px;
             padding: 20px;
+            padding-top:50px;
         }
 
         .page {
@@ -68,6 +79,132 @@
 
         .page[style="display: block;"] {
             opacity: 1;
+        }
+
+        /* Dark/Light Mode Button */
+        #themeToggle {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: black;
+            transition: color 0.3s;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+        }
+
+        /* Tab Styles for My Works */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            cursor: pointer;
+            margin-top: 20px;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .tabs div {
+            padding: 10px;
+            background-color: #ddd;
+            margin-right: 5px;
+            border-radius: 5px 5px 0 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .tabs div.active {
+            background-color: #86AB89;
+            color: white;
+            border-bottom: none;
+        }
+
+        .tabs div:hover {
+            background-color: #5F8A6B;
+            color: white;
+        }
+
+        /* Content inside tabs */
+        .tab-content {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Menu Toggle Button */
+        #menuToggle {
+            /* display: none; */
+            position: absolute;
+            top: 20px;
+            left: 260px;
+            font-size: 30px;
+            cursor: pointer;
+            color: #86AB89;
+        }
+
+        .prime {
+            /* position: absolute;
+            top: 10px;
+            left: 10px; */
+            background-color: #86AB89;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .menu {
+                width: 0;
+                position: fixed;
+                height: 100vh;
+                top: 0;
+                left: 0;
+                z-index: 999;
+                transition: width 0.3s ease-in-out;
+            }
+
+            .menu ul {
+                display: none;
+                padding: 0;
+                margin-top: 0;
+            }
+
+            .menu ul li {
+                padding: 10px;
+            }
+
+            .menu ul li a {
+                font-size: 16px;
+            }
+
+            .menu.active {
+                width: 250px;
+            }
+
+            .menu.active ul {
+                display: block;
+            }
+
+            .content {
+                margin-left: 0;
+            }
+
+            #themeToggle {
+                top: 10px;
+                right: 10px;
+            }
+
+            #menuToggle {
+                display: block;
+            }
         }
 
         /* Back to Top Button */
@@ -86,42 +223,76 @@
         #backToTop:hover {
             background-color: #5F8A6B;
         }
+        .sidebar-container {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background-color: #333;
+        width: 250px;
+        padding-top: 20px; /* Space above Profile */
+    }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .menu {
-                width: 100%;
-                height: auto;
-            }
-            .content {
-                margin-left: 0;
-            }
+
+
+    
+    .sidebarMenu {
+    padding-top: 500px;   
+    }
+  /* Media Queries for Responsiveness */
+  @media (max-width: 768px) {
+        .sidebar-container {
+            width: 100%; /* Full width on mobile */
+            position: relative; /* Position relative instead of fixed */
         }
+
+        .menu {
+            padding-top: 0;
+        }
+
+        .content {
+            margin-left: 0; /* No margin for mobile */
+        }
+    }
     </style>
 </head>
 
 <body>
-    <div class="menu">
-        <ul>
+
+    <div id="menuToggle" class="fas fa-bars" onclick="toggleMenu()"></div>
+
+    <!-- Sidebar Menu -->
+    <div class="menu" id="sidebarMenu">
+        <ul style="padding-top:50px;">
             <li><a href="#" onclick="showPage('home')" class="active">Home</a></li>
             <li><a href="#" onclick="showPage('about')">About</a></li>
-            <li><a href="website/mydhj.html" onclick="showPage('journey')">My DH Journey</a></li>
+            <li><a href="#" onclick="showPage('journey')">My DH Journey</a></li>
             <li><a href="#" onclick="showPage('readings')">My Readings</a></li>
             <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+            <li>
+                <a href="#" onclick="showPage('works')">My Works</a>
+
+            </li>
         </ul>
     </div>
 
-    <div class="content">
-        <button id="themeToggle">Toggle Dark Mode</button>
+    <!-- Content Section -->
+    <div class="content" id="contentSection">
+        <button id="themeToggle"><i class="fas fa-sun"></i></button>
 
         <div id="home" class="page" style="display: block;">
             <h1>Welcome to My Website</h1>
-            <p> Hi! I am Simran Bhimjyami.Welcome to my website. Here, you would find my insights, experiences as a DH-er. I would archive my Research Journey and all the information that might be useful to someone beginning as a Research Scholar in Digital Humanities.</p>
+            <p> Hi! I am Simran Bhimjyami. Welcome to my website. Here, you will find my insights and experiences as a
+                DH-er. I will archive my Research Journey and all the information that might be useful to someone
+                beginning as a Research Scholar in Digital Humanities.</p>
         </div>
 
         <div id="about" class="page">
             <h1>About Me</h1>
-            <p>I am a Research Scholar at IIT ISM Dhanbad, working in the area of Indian Digital Environmetal Humanities. I aim to share intersting insights from my Research journey through this website.</p>
+            <p>I am a Research Scholar at IIT ISM Dhanbad, working in the area of Indian Digital Environmental
+                Humanities. I aim to share interesting insights from my Research journey through this website.</p>
         </div>
 
         <div id="journey" class="page">
@@ -138,11 +309,50 @@
             <h1>Contact Me</h1>
             <p>Feel free to reach out to me at simranbhimjyani.859@gmail.com.</p>
         </div>
+
+
+        <div id="works" class="page">
+            
+            <div id="poemList" class="poem-list">
+                <h1>My Works</h1>
+                <button class="prime" onclick="showPoemPage('poem/index.html')">Poem</button>
+
+                <!-- Add more buttons for poems -->
+            </div>
+            <div id="poemPage" class="poem-page" style="display: none;">
+                <div class="iframe-container">
+                    <button class="prime" id="backToPoemList" onclick="backToPoemList()">Back to My works</button>
+                    <iframe id="poemIframe" width="100%" height="700px"></iframe>
+
+                </div>
+
+            </div>
+        </div>
     </div>
 
+    <!-- Back to Top Button -->
     <button id="backToTop">↑ Top</button>
 
     <script>
+               const menu = document.getElementById('sidebarMenu');
+
+            const content = document.getElementById('contentSection');
+            const menuToggle = document.getElementById('menuToggle');
+
+        function toggleMenu() {
+            menu.classList.toggle('active');     
+            // Check if the menu is already open
+            if (menu.style.transform === 'translateX(0%)') {
+                menu.style.transform = 'translateX(-100%)'; // Close the menu
+                content.style.marginLeft = '0'; // Shift content back
+                menuToggle.style.left = "20px";
+            } else {
+                menu.style.transform = 'translateX(0%)'; // Open the menu
+                content.style.marginLeft = '250px'; // Shift content to the right
+                menuToggle.style.left = "260px";
+            }
+        }
+
         // Function to handle page display
         function showPage(pageId) {
             const pages = document.querySelectorAll('.page');
@@ -154,33 +364,65 @@
 
             // Show the selected page and highlight the corresponding menu link
             document.getElementById(pageId).style.display = 'block';
-            document.querySelector(`a[onclick="showPage('${pageId}')"]`).classList.add('active');
+            const activeLink = Array.from(menuLinks).find(link => link.innerText.toLowerCase() === pageId);
+            activeLink.classList.add('active');
         }
 
-        // Toggle Dark Mode
-        const toggleButton = document.getElementById('themeToggle');
+        // Dark Mode Toggle
+        const themeToggleButton = document.getElementById('themeToggle');
         let darkMode = false;
 
-        toggleButton.addEventListener('click', () => {
+        themeToggleButton.addEventListener('click', function () {
             darkMode = !darkMode;
-            document.body.style.backgroundColor = darkMode ? '#333' : '#E7FBE6';
-            document.body.style.color = darkMode ? '#fff' : '#000';
+            document.body.style.backgroundColor = darkMode ? '#2C2C2C' : '#E7FBE6';
+            document.body.style.color = darkMode ? '#E7FBE6' : 'black';
+            themeToggleButton.innerHTML = darkMode ? '<i class="fas fa-moon" style="color:white"></i>' : '<i class="fas fa-sun"></i>';
         });
 
-        // Back to Top Button Functionality
-        const backToTop = document.getElementById('backToTop');
+        function showPoemPage(poemId) {
+            
+                menu.style.transform = 'translateX(-100%)'; // Close the menu
+                content.style.marginLeft = '0'; // Shift content back
+                menuToggle.style.left = "20px";
+            
+            // Hide the poem list and show the iframe for selected poem
+            document.getElementById('poemList').style.display = 'none';
+            document.getElementById('poemPage').style.display = 'block';
 
+            const iframe = document.getElementById('poemIframe');
+            iframe.src = `${poemId}`;  // Replace with actual file path or content
+
+            // Change the button text to go back to the list
+            document.getElementById('backToPoemList').style.display = 'inline-block';
+        }
+
+        // Function to go back to the poem list
+        function backToPoemList() {
+        
+                menu.style.transform = 'translateX(0%)'; // Open the menu
+                content.style.marginLeft = '250px'; // Shift content to the right
+                menuToggle.style.left = "260px";
+            
+            document.getElementById('poemList').style.display = 'block';
+            document.getElementById('poemPage').style.display = 'none';
+            document.getElementById('backToPoemList').style.display = 'none';
+        }   // Toggle Sidebar Menu
+
+
+        // Back to Top button functionality
         window.onscroll = function () {
-            if (document.documentElement.scrollTop > 300) {
-                backToTop.style.display = 'block';
+            const backToTopButton = document.getElementById('backToTop');
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                backToTopButton.style.display = "block";
             } else {
-                backToTop.style.display = 'none';
+                backToTopButton.style.display = "none";
             }
         };
 
-        backToTop.addEventListener('click', () => {
+        document.getElementById('backToTop').onclick = function () {
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+        };
     </script>
 </body>
+
 </html>
