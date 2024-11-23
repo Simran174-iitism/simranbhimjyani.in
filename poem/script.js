@@ -32,6 +32,9 @@ sing = new Audio(
 space = new Audio(
     "assets/audio/a-gentle-breeze-wind-1-14813.mp3"
 );
+spring = new Audio(
+    "assets/audio/spring.mp3"
+);
 
 soundscape = new Audio();
 
@@ -43,7 +46,8 @@ const poems = [
         poem:
             "An empty space,<br />With a window offering a view<br />A bird,sitting outside on a plain wall<br />A patch of green grass <br />Some unrecognized sounds and voices<br />A little breeze<br />Somebody laughing,<br />Somebody singing inside their homes<br />The Bird flies away <br />",
         animation: "lighthouse",
-        color: "lightblue"
+        color: "lightblue",
+        audio: spring
     },
 
     {
