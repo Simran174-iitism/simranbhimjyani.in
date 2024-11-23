@@ -77,7 +77,7 @@ const poems = [
     },
     {
 
-        poem:"This picture has been taken after 4 years of composing the poem(2024) and now, the green field is no more visible, as buildings have been constructed. The sparrow is also not seen any more. Only the blue sky remains!<br />",
+        poem:"This is a recent picture captured 4 years after composing the poem! I penned this poem, sitting by a window close to my desk, during the COVID 19 lockdown. The pictures of the lush green view and the blue sky, and the sparrow ( my muse) have become part of my nostalgic memories. Four years later, I opened the window again, only to find concrete buildings. The greenery has gone and so have the sparrows. Only the Blue Sky remains ! <br />",
 
         animation: "moon",
         color: "lightblue",
