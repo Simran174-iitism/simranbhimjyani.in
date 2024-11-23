@@ -43,8 +43,7 @@ const poems = [
         poem:
             "An empty space,<br />With a window offering a view<br />A bird,sitting outside on a plain wall<br />A patch of green grass <br />Some unrecognized sounds and voices<br />A little breeze<br />Somebody laughing,<br />Somebody singing inside their homes<br />The Bird flies away <br />",
         animation: "lighthouse",
-        color: "lightblue",
-        audio: lighthouse
+        color: "lightblue"
     },
 
     {
