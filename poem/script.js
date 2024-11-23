@@ -467,6 +467,7 @@ $('.buttons_poet').click(function (e) {
     const poetContent = `
         <h1 style="margin-bottom:0">Simran</h1><br/><p style="margin-top:0">Simran Bhimjyani is a first year Research Scholar at Indian Institute of Technology Dhanbad, working in the area of Digital Environmental Humanities. She holds an MA in English from Banaras Hindu University. When she's not busy with academics, Simran can be found nurturing her leafy mates or scribbling verse. <strong></strong></p>
         <h1 style="margin-bottom:0">Mohana</h1><br/><p style="margin-top:0">Mohanapriya is a senior web developer, software developer, and trainer extraordinaire. With a BSc in Physics and Masters and MPhil in Computer Applications from Bharathiar University, Mohanapriya specialises in fundamental programming languages like C, C++, Python, R, JavaScript, PHP, Ruby, Dart, and Data Science. When she's not coding, she loves spending time playing with her adorable pets!<strong></strong></p>
+        <h2 style="margin-bottom:0">Instructions</h2><br/><p style="margin-top:0">Peek outside with me! Click the lines around the circle to see the world through my window. Use the arrows to move forward or back.<strong></strong></p>
         
     `;
     openPopup('About Us', poetContent);
