@@ -70,7 +70,7 @@ const poems = [
 
     {
         poem:
-            "The sun becomes dim now, for you, to see, what more the sky can do for you <br />How long you took, to sit and look around you<br />The sky that had always been the same <br />but you flew away like that bird that made that plain wall look more forlorn<br />But the bird, that little winged creature ,it knows the joys of returning soon <br />But you took 15 years <br />To just look back at the sky <br /><br /><b>And no wonder you had been thinking that blue was your favourite colour !</b><br />",
+            "The sun becomes dim now, for you, to see, what more the sky can do for you <br />How long you took, to sit and look around you<br />The sky that had always been the same <br />but you flew away like that bird that made that plain wall look more forlorn<br />But the bird, that little winged creature, it knows the joys of returning soon <br />But you took 15 years <br />To just look back at the sky <br /><br /><b>And no wonder you had been thinking that blue is your favourite colour !</b><br />",
         animation: "hope",
         color: "lightblue",
         audio: hope
