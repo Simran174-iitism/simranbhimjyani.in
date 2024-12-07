@@ -357,15 +357,26 @@
         function showPage(pageId) {
             const pages = document.querySelectorAll('.page');
             const menuLinks = document.querySelectorAll('.menu ul li a');
-
+        
             // Hide all pages and remove 'active' class from menu links
             pages.forEach(page => page.style.display = 'none');
             menuLinks.forEach(link => link.classList.remove('active'));
-
-            // Show the selected page and highlight the corresponding menu link
-            document.getElementById(pageId).style.display = 'block';
-            const activeLink = Array.from(menuLinks).find(link => link.innerText.toLowerCase() === pageId);
-            activeLink.classList.add('active');
+        
+            // Show the selected page
+            const page = document.getElementById(pageId);
+            if (page) {
+                page.style.display = 'block';
+            } else {
+                console.error(`Page with ID '${pageId}' not found.`);
+            }
+        
+            // Highlight the corresponding menu link
+            const activeLink = Array.from(menuLinks).find(link => link.getAttribute('onclick').includes(`'${pageId}'`));
+            if (activeLink) {
+                activeLink.classList.add('active');
+            } else {
+                console.error(`Menu link for '${pageId}' not found.`);
+            }
         }
 
         // Dark Mode Toggle
