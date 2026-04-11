@@ -99,15 +99,26 @@
     .page.active { display: block; }
 
     .hero {
-      background: #fff;
-      border-radius: 16px;
-      padding: 3rem;
-      margin-bottom: 2rem;
-      border: 1px solid #e0ead8;
-      position: relative;
-      overflow: hidden;
-      transition: background 0.3s, border-color 0.3s;
-    }
+  background: #fff;
+  border-radius: 16px;
+  padding: 3rem;
+  margin-bottom: 2rem;
+  border: 1px solid #e0ead8;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+#about .hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('lorepemberton.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.08;
+  pointer-events: none;
+}
 
     .hero::before {
       content: '';
@@ -416,7 +427,9 @@
       <a href="#" onclick="showPage('blog'); return false;" data-page="blog">&#9997;&nbsp; Blog</a>
       <a href="#" onclick="showPage('contact'); return false;" data-page="contact">&#9993;&nbsp; Contact</a>
     </nav>
-    <div class="sidebar-footer">&copy; 2025 Simran Bhimjyani</div>
+<div style="margin-left:220px; text-align:center; padding:1rem; font-size:11px; color:#8a9e8a; border-top:1px solid #e0ead8;">
+  Illustration by <a href="https://www.lorepemberton.com" target="_blank" style="color:#4a7c59;">Loré Pemberton</a> — used with credit for non-commercial academic purposes.
+</div>
   </div>
 
   <div class="main">
@@ -542,7 +555,7 @@
         </div>
       </div>
 
-      <!-- Blog -->
+    <!-- Blog -->
       <div id="blog" class="page">
         <div class="hero" style="margin-bottom:1.5rem">
           <div class="hero-tag">Blog</div>
@@ -556,14 +569,17 @@
           <p>My first post published on Knowledge Commons (HASTAC), marking the beginning of my public writing as a Digital Humanities researcher.</p>
           <a class="btn-primary" href="https://simranbhimjyani.hcommons.org/2025/10/25/first-post/" target="_blank">&#8594; Read on Knowledge Commons</a>
         </div>
-      </div>
-      <div class="blog-card">
-  <div class="blog-meta">23 April 2025 &middot; Voyant Tools</div>
-  <h3>Translating Voyant Tools into Gujarati: Bridging Digital Humanities and Regional Scholarship</h3>
-  <p>Co-authored with Mehul Desai. This article documents our work translating the Voyant Tools interface into Gujarati — marking it as the first Indian regional language to be incorporated into the platform, in collaboration with Prof. Dr. Geoffrey Rockwell.</p>
-  <a class="btn-primary" href="https://voyant-tools.info/2025/04/23/translating-voyant-tools-into-gujarati-bridging-digital-humanities-and-regional-scholarship/" target="_blank">&#8594; Read on Voyant Tools</a>
-</div>
 
+        <div class="blog-card">
+          <div class="blog-meta">23 April 2025 &middot; Voyant Tools</div>
+          <h3>Translating Voyant Tools into Gujarati: Bridging Digital Humanities and Regional Scholarship</h3>
+          <p>Co-authored with Mehul Desai. Documents our work translating the Voyant Tools interface into Gujarati — the first Indian regional language incorporated into the platform.</p>
+          <a class="btn-primary" href="https://voyant-tools.info/2025/04/23/translating-voyant-tools-into-gujarati-bridging-digital-humanities-and-regional-scholarship/" target="_blank">&#8594; Read on Voyant Tools</a>
+        </div>
+
+      </div>
+
+    
       <!-- Contact -->
       <div id="contact" class="page">
         <div class="hero">
