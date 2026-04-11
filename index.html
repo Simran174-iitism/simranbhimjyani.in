@@ -17,7 +17,6 @@
       transition: background 0.3s, color 0.3s;
     }
 
-    /* ── Sidebar ── */
     .sidebar {
       width: 220px;
       min-height: 100vh;
@@ -69,7 +68,6 @@
       color: rgba(255,255,255,0.35);
     }
 
-    /* ── Main ── */
     .main { margin-left: 220px; flex: 1; min-height: 100vh; }
 
     .topbar {
@@ -100,7 +98,6 @@
     .page { display: none; }
     .page.active { display: block; }
 
-    /* ── Hero ── */
     .hero {
       background: #fff;
       border-radius: 16px;
@@ -137,7 +134,6 @@
 
     .hero p { font-size: 15px; color: #555; line-height: 1.8; max-width: 580px; }
 
-    /* ── Stats ── */
     .stats-row { display: flex; gap: 1.25rem; margin-top: 2rem; flex-wrap: wrap; }
 
     .stat {
@@ -151,7 +147,6 @@
     .stat .num { font-size: 22px; font-weight: 700; color: #3a6147; }
     .stat .label { font-size: 11px; color: #7a957a; margin-top: 2px; }
 
-    /* ── Section heading ── */
     .section-heading {
       font-size: 12px; font-weight: 500;
       color: #8a9e8a;
@@ -159,7 +154,6 @@
       margin-bottom: 1rem;
     }
 
-    /* ── Cards ── */
     .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; margin-bottom: 2rem; }
 
     .card {
@@ -190,7 +184,6 @@
     }
     .card-link:hover { text-decoration: underline; }
 
-    /* ── Featured ── */
     .featured {
       background: #fff;
       border-radius: 14px;
@@ -219,7 +212,27 @@
     .featured .meta { font-size: 12px; color: #8a9e8a; margin-bottom: 1rem; }
     .featured p { font-size: 14px; color: #555; line-height: 1.8; }
 
-    /* ── Buttons ── */
+    .blog-card {
+      background: #fff;
+      border-radius: 14px;
+      border: 1px solid #e0ead8;
+      padding: 1.75rem;
+      margin-bottom: 1.25rem;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.3s, border-color 0.3s;
+    }
+    .blog-card:hover { transform: translateY(-2px); box-shadow: 0 4px 20px rgba(58,97,71,0.1); }
+    .blog-card .blog-meta { font-size: 11px; color: #8a9e8a; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .blog-card h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: #2a4a33; margin-bottom: 0.5rem; }
+    .blog-card p { font-size: 13px; color: #7a8a7a; line-height: 1.7; }
+
+    .affiliations { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
+    .affil-badge {
+      background: #e8f5e0; color: #3a6147;
+      font-size: 12px; font-weight: 500;
+      padding: 6px 14px; border-radius: 20px;
+      border: 1px solid #c8e0b8;
+    }
+
     .btn-primary {
       display: inline-flex; align-items: center; gap: 8px;
       background: #3a6147; color: #fff;
@@ -246,24 +259,6 @@
     }
     .btn-outline:hover { background: #3a6147; color: #fff; }
 
-    /* ── Readings ── */
-    .reading-item {
-      display: flex; align-items: flex-start; gap: 1rem;
-      padding: 1rem 0;
-      border-bottom: 1px solid #e8f0e0;
-    }
-    .reading-item:last-child { border-bottom: none; }
-    .reading-num { font-size: 12px; font-weight: 500; color: #b8d4a8; min-width: 24px; padding-top: 2px; }
-    .reading-info h4 { font-size: 14px; font-weight: 500; color: #2a4a33; }
-    .reading-info p { font-size: 12px; color: #8a9e8a; margin-top: 2px; }
-    .tag {
-      display: inline-block;
-      background: #e8f5e0; color: #3a6147;
-      font-size: 11px; padding: 3px 8px;
-      border-radius: 6px; margin-top: 6px;
-    }
-
-    /* ── Back to top ── */
     #backToTop {
       display: none;
       position: fixed; bottom: 24px; right: 24px;
@@ -278,7 +273,6 @@
     }
     #backToTop:hover { background: #2a4a33; }
 
-    /* ── Modal ── */
     .modal-overlay {
       position: fixed; inset: 0;
       background: rgba(20,35,25,0.55);
@@ -358,32 +352,32 @@
     }
     .btn-skip:hover { color: #4a7c59; }
 
-    /* ── Dark Mode ── */
     body.dark { background: #1a2420; color: #e0ead8; }
     body.dark .topbar { background: #1e2e28; border-color: #2a3e32; }
     body.dark .topbar .page-title { color: #5a8a6a; }
     body.dark .sidebar { background: linear-gradient(180deg, #2a3d30 0%, #1e2d24 100%); }
     body.dark .hero,
     body.dark .card,
-    body.dark .featured { background: #22302a; border-color: #2e4038; }
+    body.dark .featured,
+    body.dark .blog-card { background: #22302a; border-color: #2e4038; }
     body.dark .hero::before { background: radial-gradient(circle, rgba(58,97,71,0.25) 0%, transparent 70%); }
     body.dark .hero h1,
     body.dark .featured h2,
+    body.dark .blog-card h3,
     body.dark .card h3 { color: #c0d8b0; }
     body.dark .hero p,
     body.dark .card p,
-    body.dark .featured p { color: #7a9a7a; }
+    body.dark .featured p,
+    body.dark .blog-card p { color: #7a9a7a; }
     body.dark .stat { background: #1a2820; border-color: #2e4038; }
     body.dark .stat .label,
-    body.dark .reading-info p,
-    body.dark .featured .meta { color: #5a7a5a; }
-    body.dark .reading-info h4 { color: #c0d8b0; }
-    body.dark .reading-item { border-color: #2e4038; }
+    body.dark .featured .meta,
+    body.dark .blog-card .blog-meta { color: #5a7a5a; }
     body.dark .hero-tag,
     body.dark .card-icon,
-    body.dark .tag,
     body.dark .modal-tag,
-    body.dark .modal-icon { background: rgba(58,97,71,0.4); }
+    body.dark .modal-icon,
+    body.dark .affil-badge { background: rgba(58,97,71,0.4); color: #a0c8a0; border-color: transparent; }
     body.dark .theme-btn { color: #c0d8b0; border-color: #2e4038; }
     body.dark .modal { background: #22302a; border-color: #2e4038; }
     body.dark .modal h2 { color: #c0d8b0; }
@@ -392,7 +386,6 @@
     body.dark .modal-anthology .pub-title { color: #c0d8b0; }
     body.dark .modal-close:hover { background: #1a2820; }
 
-    /* ── Responsive ── */
     @media (max-width: 768px) {
       .sidebar { width: 100%; height: auto; min-height: unset; position: relative; }
       .main { margin-left: 0; }
@@ -408,25 +401,24 @@
 
 <body>
 
-  <!-- Sidebar -->
   <div class="sidebar">
     <div class="sidebar-brand">
       <div class="initials">SB</div>
       <div class="name">Simran Bhimjyani</div>
-     <div class="tagline">D(Her)</div>
+      <div class="tagline">D(Her)</div>
     </div>
     <nav>
       <a href="#" onclick="showPage('home'); return false;" class="active" data-page="home">&#8962;&nbsp; Home</a>
       <a href="#" onclick="showPage('about'); return false;" data-page="about">&#9825;&nbsp; About</a>
-      <a href="website/mydhj.html" data-page="journey">&#9672;&nbsp; My DH Journey</a>
+      <a href="#" onclick="showPage('journey'); return false;" data-page="journey">&#9672;&nbsp; My DH Journey</a>
       <a href="#" onclick="showPage('readings'); return false;" data-page="readings">&#9634;&nbsp; My Readings</a>
       <a href="#" onclick="showPage('works'); return false;" data-page="works">&#9733;&nbsp; My Works</a>
+      <a href="#" onclick="showPage('blog'); return false;" data-page="blog">&#9997;&nbsp; Blog</a>
       <a href="#" onclick="showPage('contact'); return false;" data-page="contact">&#9993;&nbsp; Contact</a>
     </nav>
     <div class="sidebar-footer">&copy; 2025 Simran Bhimjyani</div>
   </div>
 
-  <!-- Main -->
   <div class="main">
     <div class="topbar">
       <span class="page-title" id="topbar-title">Home</span>
@@ -438,13 +430,13 @@
       <!-- Home -->
       <div id="home" class="page active">
         <div class="hero">
-          <div class="hero-tag">Digital Humanities Researcher</div>
+          <div class="hero-tag">Digital Environmental Humanities</div>
           <h1>Welcome to My Website</h1>
-          <p>Hi! I am Simran Bhimjyani. Here, you will find my insights and experiences as a DH-er. I archive my Research Journey and all the information that might be useful to someone beginning as a Research Scholar in Digital Humanities.</p>
+          <p>Hi! I am Simran Bhimjyani, a Research Scholar at IIT (ISM) Dhanbad specialising in Digital Humanities. Here, you will find my research, publications, and reflections as a DH-er — a space for anyone beginning their journey in Digital Humanities.</p>
           <div class="stats-row">
             <div class="stat"><div class="num">2</div><div class="label">Publications</div></div>
             <div class="stat"><div class="num">Vol 2</div><div class="label">IELA Anthology</div></div>
-            <div class="stat"><div class="num">DH</div><div class="label">Research Scholar</div></div>
+            <div class="stat"><div class="num">DEH</div><div class="label">Specialisation</div></div>
           </div>
         </div>
 
@@ -464,13 +456,13 @@
             <div class="card-icon">&#9672;</div>
             <h3>My DH Journey</h3>
             <p>Follow my path as a Research Scholar navigating the world of Digital Humanities — tools, methods, and discoveries.</p>
-            <a class="card-link" href="website/mydhj.html">Read more &#8594;</a>
+            <span class="card-link" onclick="showPage('journey')">Read more &#8594;</span>
           </div>
           <div class="card">
-            <div class="card-icon">&#9634;</div>
-            <h3>My Readings</h3>
-            <p>Annotated reading lists, reflections, and notes on key texts shaping my understanding of DH and literature.</p>
-            <span class="card-link" onclick="showPage('readings')">Browse readings &#8594;</span>
+            <div class="card-icon">&#9997;</div>
+            <h3>Blog</h3>
+            <p>Reflections, notes, and writings from my research life — also published on Knowledge Commons.</p>
+            <span class="card-link" onclick="showPage('blog')">Read blog &#8594;</span>
           </div>
           <div class="card">
             <div class="card-icon">&#9825;</div>
@@ -486,28 +478,34 @@
         <div class="hero">
           <div class="hero-tag">About</div>
           <h1>About Me</h1>
-          <p>I am a Research Scholar in Digital Humanities, exploring the boundaries between technology, literature, and culture. My work involves using digital tools and methods to study texts, create electronic literature, and make humanistic inquiry more accessible.</p>
+          <p>I am a Research Scholar at IIT (ISM) Dhanbad specialising in Digital Humanities, with a focus on eco-computational approaches to Indian literary texts. My work sits at the intersection of technology, environment, and literature — exploring how digital methods can open new ways of reading and understanding nature in Indian writing.</p>
+          <div class="affiliations">
+            <span class="affil-badge">&#127979; IIT (ISM) Dhanbad</span>
+            <span class="affil-badge">&#9670; HASTAC Scholar</span>
+            <span class="affil-badge">&#9670; Advisory Member, GDHS</span>
+            <span class="affil-badge">&#9670; Member, DHARTI</span>
+          </div>
         </div>
       </div>
 
-      <!-- Journey — links out to mydhj.html, kept as placeholder -->
+      <!-- My DH Journey -->
       <div id="journey" class="page">
         <div class="hero">
           <div class="hero-tag">DH Journey</div>
           <h1>My DH Journey</h1>
-          <p>A running archive of my experiences, learnings, and reflections as I navigate the world of Digital Humanities research.</p>
-          <a class="btn-primary" href="website/mydhj.html">Open full page &#8594;</a>
+          <p>A running archive of my experiences, learnings, and reflections as I navigate the world of Digital Humanities research — from discovering tools and methods to finding my place in the global DH community.</p>
         </div>
       </div>
 
-    <!-- Readings -->
-<div id="readings" class="page">
-  <div class="hero" style="margin-bottom:1.5rem">
-    <div class="hero-tag">Reading List</div>
-    <h1>My Readings</h1>
-    <p>Texts, articles, and books that have shaped my thinking as a DH researcher.</p>
-  </div>
-</div>
+      <!-- Readings -->
+      <div id="readings" class="page">
+        <div class="hero">
+          <div class="hero-tag">Reading List</div>
+          <h1>My Readings</h1>
+          <p>Texts, articles, and books that have shaped my thinking as a DH researcher.</p>
+        </div>
+      </div>
+
       <!-- Works -->
       <div id="works" class="page">
         <div class="hero">
@@ -515,41 +513,55 @@
           <h1>Published Works</h1>
           <p>Electronic literature, research papers, and creative-critical projects at the intersection of technology and the humanities.</p>
         </div>
+
         <div class="featured" style="margin-top:1.5rem">
           <div class="featured-badge">&#9733; New</div>
           <h2>Indian Electronic Literature Anthology Vol. 2</h2>
           <div class="meta">2025 &middot; Indian Electronic Literature Anthology</div>
           <p>This work has been selected and published in Volume 2 of the Indian Electronic Literature Anthology — a landmark collection celebrating digital literary expression from the subcontinent.</p>
-          <!-- Replace the href below with your actual work URL -->
-        <a class="btn-primary" href="https://simran174-iitism.github.io/simranbhimjyani.in/poem/" target="_blank">&#9654; View the Work</a>
+          <a class="btn-primary" href="https://simran174-iitism.github.io/simranbhimjyani.in/poem/" target="_blank">&#9654; View the Work</a>
+        </div>
+
+        <div class="featured">
+          <div class="featured-badge">&#9733; New</div>
+          <h2>Narrating nature in the digital age: exploring Indian eco-electronic literature</h2>
+          <div class="meta">Research Article &middot; Taylor &amp; Francis &middot; New Review of Hypermedia and Multimedia &middot; Vol. 32, Issue 2–3 &middot; Published online 18 Sep 2025</div>
+          <p>Co-authored with Mehulkumar Desai and T. Shanmugapriya. Received 12 March 2025, accepted 3 September 2025. Published in <em>New Review of Hypermedia and Multimedia</em>.</p>
+          <a class="btn-primary" href="https://doi.org/10.1080/13614568.2025.2557808" target="_blank">&#8594; Read Article</a>
         </div>
       </div>
-      
-<div class="featured" style="margin-top:1.5rem">
-  <div class="featured-badge">&#9733; New</div>
-  <h2>Narrating Nature in the Digital Age: Exploring Indian Eco-Electronic Literature</h2>
-<div class="meta">Research Article &middot; Taylor &amp; Francis &middot; New Review of Hypermedia and Multimedia &middot; Vol. 32, Issue 2–3 &middot; Published online 18 Sep 2025</div>
-<p>Co-authored with Mehulkumar Desai and T. Shanmugapriya. Received 12 March 2025, accepted 3 September 2025. Published in <em>New Review of Hypermedia and Multimedia</em>.</p>
-<a class="btn-primary" href="https://doi.org/10.1080/13614568.2025.2557808" target="_blank">&#8594; Read Article</a>
-</div>
+
+      <!-- Blog -->
+      <div id="blog" class="page">
+        <div class="hero" style="margin-bottom:1.5rem">
+          <div class="hero-tag">Blog</div>
+          <h1>Blog</h1>
+          <p>Reflections and writings from my research journey. Also published on Knowledge Commons.</p>
+        </div>
+
+        <div class="blog-card">
+          <div class="blog-meta">25 October 2025 &middot; Knowledge Commons</div>
+          <h3>First Post</h3>
+          <p>My first post published on Knowledge Commons (HASTAC), marking the beginning of my public writing as a Digital Humanities researcher.</p>
+          <a class="btn-primary" href="https://simranbhimjyani.hcommons.org/2025/10/25/first-post/" target="_blank">&#8594; Read on Knowledge Commons</a>
+        </div>
+      </div>
+
       <!-- Contact -->
       <div id="contact" class="page">
         <div class="hero">
           <div class="hero-tag">Contact</div>
           <h1>Get in Touch</h1>
           <p>Whether you are a fellow researcher, a student starting your DH journey, or someone curious about electronic literature — I would love to hear from you.</p>
-          <!-- Replace href with your email -->
           <a class="btn-primary" href="mailto:simranbhimjyani.859@gmail.com">&#9993; Send a message</a>
         </div>
       </div>
 
-    </div><!-- /content -->
-  </div><!-- /main -->
+    </div>
+  </div>
 
-  <!-- Back to Top -->
   <button id="backToTop" title="Back to top">&#8679;</button>
 
-  <!-- Welcome Modal -->
   <div class="modal-overlay" id="modal-overlay">
     <div class="modal">
       <button class="modal-close" onclick="closeModal()" title="Close">&#10005;</button>
@@ -573,19 +585,17 @@
       journey: 'My DH Journey',
       readings: 'My Readings',
       works: 'My Works',
+      blog: 'Blog',
       contact: 'Contact'
     };
 
     function showPage(pageId) {
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
       document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-
       const page = document.getElementById(pageId);
       if (page) page.classList.add('active');
-
       const link = document.querySelector(`nav a[data-page="${pageId}"]`);
       if (link) link.classList.add('active');
-
       document.getElementById('topbar-title').textContent = pageTitles[pageId] || pageId;
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -599,7 +609,6 @@
       showPage('works');
     }
 
-    // Dark mode toggle
     const themeToggle = document.getElementById('themeToggle');
     let dark = false;
     themeToggle.addEventListener('click', () => {
@@ -608,7 +617,6 @@
       themeToggle.textContent = dark ? '☀ Light mode' : '☾ Dark mode';
     });
 
-    // Back to top
     const backToTop = document.getElementById('backToTop');
     window.addEventListener('scroll', () => {
       backToTop.style.display = window.scrollY > 300 ? 'flex' : 'none';
